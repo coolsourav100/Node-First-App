@@ -5,7 +5,7 @@ const requestHandler =(req,res)=>{
   const method = req.method
   res.setHeader('Content-Type','text/html')
   if(url==='/'){
-  res.write(`<html><body><h1>Welcome to the Node.Js Server</h1><h3>${display}</h3><form action='/home' method='POST'><input type='text' name = 'message'/><button>Send</button></form></body></html>`)
+  res.write(`<html><body><h1>Welcome to the Node.Js Server ver 10.0.1</h1><h3>${display}</h3><form action='/home' method='POST'><input type='text' name = 'message'/><button>Send</button></form></body></html>`)
    return res.end()
   }
   if(url==='/home' && method==='POST'){
@@ -17,7 +17,7 @@ const requestHandler =(req,res)=>{
     let dummy
     req.on('end',()=>{
       const DataBody = Buffer.concat(body).toString()
-      dummy=DataBody.split('=')[1]
+      dummy=DataBody.split('=')[0]
       dummy = dummy.split('+').join(' ')
       console.log(dummy)
       fs.writeFile('requestedData.text',dummy ,(err)=>{
